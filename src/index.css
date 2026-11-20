@@ -1,0 +1,254 @@
+:root {
+  --bg: #f3f6fb;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #d7e1ee;
+  --accent: #1d4ed8;
+  --accent-hover: #1e40af;
+  --accent-active: #1e3a8a;
+  --accent-soft: #e7efff;
+  --shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --radius: 16px;
+  color-scheme: light;
+  font-family: "Segoe UI", "Microsoft JhengHei", "PingFang TC", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav a {
+  color: var(--muted);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.nav a:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.nav a[aria-current="page"] {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.nav a:focus-visible,
+.brand:focus-visible,
+.button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.main {
+  width: min(880px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 64px;
+}
+
+.stack {
+  display: grid;
+  gap: 20px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 8px 0 0;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.lede {
+  margin: 12px 0 0;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.feature-list {
+  margin: 0 0 24px;
+  padding-left: 1.2em;
+}
+
+.feature-list li + li {
+  margin-top: 8px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.button-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.button-primary:hover {
+  background: var(--accent-hover);
+}
+
+.button-primary:active {
+  background: var(--accent-active);
+}
+
+.button-secondary {
+  background: #ffffff;
+  color: var(--accent);
+  border-color: #bfdbfe;
+}
+
+.button-secondary:hover {
+  background: var(--accent-soft);
+}
+
+.button-ghost {
+  background: transparent;
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+.button-ghost:hover {
+  background: #f8fafc;
+  color: var(--text);
+}
+
+.button:disabled,
+.button:disabled:hover,
+.button:disabled:active {
+  background: #e2e8f0;
+  color: #64748b;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+}
+
+.counter-card {
+  text-align: center;
+}
+
+.count {
+  margin: 0;
+  color: var(--accent);
+  font-size: 72px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.card .button {
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .count {
+    font-size: 56px;
+  }
+
+  .main {
+    padding-top: 24px;
+  }
+
+  .button-row .button {
+    flex: 1 1 calc(50% - 12px);
+  }
+}
